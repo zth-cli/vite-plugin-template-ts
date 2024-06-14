@@ -2,10 +2,10 @@
   <component :is="mode" v-bind="$attrs"></component>
 </template>
 
-<script>
-import { markRaw, onMounted, ref, toRefs } from 'vue'
+<script lang="ts">
+import { markRaw, onMounted, ref, toRefs, defineComponent } from 'vue'
 
-export default {
+export default defineComponent({
   name: 'Remote',
   // 如果你不希望组件的根元素继承特性，你可以在组件的选项中设置inheritAttrs: falseinheritAttrs: false,
   props: {
@@ -21,14 +21,13 @@ export default {
       },
     },
   },
-  setup(props, { emit }) {
-    const mode = ref(null)
-    const { js, css, libraryName, componentName } = toRefs(props.componentInfo)
-    // console.log('props', js, css, libraryName, componentName)
+  setup(props) {
+    const mode = ref()
+    const { js, libraryName, componentName } = toRefs(props.componentInfo)
     /**
      * 使用动态 script方式加载远程js
      */
-    function asyncScript(url) {
+    function asyncScript(url: string) {
       // 动态script
       return new Promise((resolve, reject) => {
         const script = document.createElement('script')
@@ -37,7 +36,7 @@ export default {
         script.src = url
         script.onload = resolve
         script.onerror = reject
-        target.parentNode.appendChild(script)
+        target.parentNode?.appendChild(script)
       })
     }
 
@@ -48,7 +47,11 @@ export default {
      * @param componentName 组件名
      * @return {Promise<void>}
      */
-    async function loadScript(url, libraryName, componentName) {
+    async function loadScript(
+      url: string,
+      libraryName: number,
+      componentName: number,
+    ): Promise<void> {
       // 动态script
       await asyncScript(url)
       console.log(window[libraryName])
@@ -60,7 +63,7 @@ export default {
      * 加载样式
      * @param url css样式文件地址
      */
-    function loadStyles(url) {
+    function loadStyles(url: string) {
       const link = document.createElement('link')
       link.rel = 'stylesheet'
       link.type = 'text/css'
@@ -79,5 +82,5 @@ export default {
       mode,
     }
   },
-}
+})
 </script>

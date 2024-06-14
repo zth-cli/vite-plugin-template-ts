@@ -34,25 +34,24 @@ export default defineConfig({
     outDir: 'dist',
     minify: false,
     rollupOptions: {
-      input: ['src/index.ts'],
+      // input: ['plugins/index.ts'],
       external: ['vue', 'vue-router'],
       output: {
-        globals: {
-          vue: 'Vue',
-        },
+        name: 'myPlugin', // 在umd模式下生成全局变量名（window.myPlugin）
+        globals: { vue: 'Vue' },
         exports: 'named',
       },
     },
     lib: {
-      entry: path.resolve(__dirname, 'src/index.ts'),
-      name: 'myPlugin', // 在umd模式下生成全局变量名（window.myPlugin）
+      entry: 'plugins/index.ts',
+      name: 'my-Plugin',
       fileName: (format) => `my-plugin.${format}.js`,
       formats: ['es', 'umd'],
     },
   },
   resolve: {
     alias: {
-      '@': resolve('example'),
+      '@': resolve('src'),
     },
   },
 })

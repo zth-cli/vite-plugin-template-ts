@@ -1,20 +1,18 @@
 <script setup lang="ts">
-import Remote from '@/components/Remote.vue'
+import Remote from './components/Remote.vue'
 import HelloWorld from '@/components/HelloWorld.vue'
 const componentInfo = {
-  js: 'http://localhost:3334/dist/my-plugin.umd.js',
+  js: 'http://localhost:3334/dist/TestButton/test-button.umd.js',
   css: '',
-  libraryName: 'myPlugin',
+  libraryName: 'TestButton',
   componentName: 'MyButton',
 }
 </script>
 
 <template>
-  <div>
-    <remote :component-info="componentInfo" />
-  </div>
   <HelloWorld msg="Vite + Vue + TS" />
-  <MyButton />
+  <br />
+  <remote :component-info="componentInfo" label="远程加载的那妞" />
 </template>
 
 <style scoped>

@@ -1,5 +1,5 @@
 import { App } from 'vue'
-import MyButton from './components/TestButton.vue'
+import { MyButton } from './TestButton'
 
 export { MyButton }
 

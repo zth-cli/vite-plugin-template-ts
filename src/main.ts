@@ -4,5 +4,4 @@ import * as Vue from 'vue'
 window.Vue = Vue
 import './style.scss'
 import App from './App.vue'
-import Atnv from '../src'
-Vue.createApp(App).use(Atnv).mount('#app')
+Vue.createApp(App).mount('#app')

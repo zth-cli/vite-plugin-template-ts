@@ -17,6 +17,7 @@
     "dev": "vite --port 3334 --open",
     "preview": "vite preview",
     "build": "vite build",
+    "build:lib": "npx tsx vite.build.ts",
     "typecheck": "vue-tsc",
     "eslint": "eslint .",
     "prettier": "prettier --write .",
@@ -25,6 +26,8 @@
     "lint": "lint-staged --allow-empty --config ./lintstagedrc.json"
   },
   "dependencies": {
+    "fast-glob": "^3.3.2",
+    "vite-plugin-css-injected-by-js": "^3.5.1",
     "vue": "^3.3.4"
   },
   "devDependencies": {
@@ -46,6 +49,7 @@
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
     "vite-bundle-visualizer": "^0.10.0",
+    "vite-plugin-dts": "^3.9.1",
     "vite-plugin-inspect": "^0.7.38",
     "vue-tsc": "^1.8.5"
   },

@@ -28,21 +28,21 @@
     ],
     "paths": {
       "@/*": [
-        "example/*"
+        "src/*"
       ],
       "components/*": [
-        "example/components/*"
+        "src/components/*"
       ],
       "api/*": [
-        "example/api/*"
+        "src/api/*"
       ]
     }
   },
   "include": [
-    "example/**/*.ts",
-    "example/**/*.d.ts",
-    "example/**/*.tsx",
-    "example/**/*.vue",
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
     "*.d.ts"
   ],
   "references": [
